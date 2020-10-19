@@ -13,15 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# from snippets.views import api_root
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('snippets.urls'))
+    path('', include('snippets.urls')),
+    # path(r'^', include('rest_framework.urls')),
+    # path('', api_root),
+    # # path('snippets/<int:pk>/highlight/', SnippetHighlight.as_view()),
 ]
 
-urlpatterns += [
-    path('api-auth/', include('rest_framework.urls')),
-]
+# urlpatterns += [
+#     path('api-auth/', include('rest_framework.urls')),
+# ]
